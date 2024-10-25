@@ -1,5 +1,5 @@
 from currency_converter import CurrencyConverter
-import funcs
+import functions
 def convertation():
     class CurrencyError(Exception):
         pass
@@ -7,7 +7,7 @@ def convertation():
     money = None
     from_currency = None
     to_currency = None
-    list_of_conv = funcs.voice.split()
+    list_of_conv = functions.voice.split()
     if len(list_of_conv) > 4:
         list_of_conv = list_of_conv[1:]
     else:
@@ -16,13 +16,13 @@ def convertation():
         try:
             money = list_of_conv[0]
         except ValueError:
-            funcs.speak("Скажите, к примеру: 50 долларов в рубли")
+            functions.speak("Скажите, к примеру: 50 долларов в рубли")
             break
     while from_currency is None:
         try:
             list_of_conv[0] = int(list_of_conv[0])
         except ValueError:
-            funcs.speak("Скажите, к примеру: 50 долларов в рубли")
+            functions.speak("Скажите, к примеру: 50 долларов в рубли")
             break
         try:
             if "руб" in list_of_conv[1]:
@@ -36,7 +36,7 @@ def convertation():
 
         except (CurrencyError, IndexError):
             from_currency = None
-            funcs.speak("Скажите, например: 50 долларов в рубли")
+            functions.speak("Скажите, например: 50 долларов в рубли")
             break
 
     while to_currency is None:
@@ -56,13 +56,13 @@ def convertation():
 
         except (CurrencyError, IndexError):
             to_currency = None
-            funcs.speak("Скажите, например: 50 долларов в рубли")
+            functions.speak("Скажите, например: 50 долларов в рубли")
             break
     while True:
         try:
-            funcs.speak(f"{money} {from_currency} в {to_currency} - "
+            functions.speak(f"{money} {from_currency} в {to_currency} - "
                 f"{round(c.convert(money, from_currency, to_currency), 2)}")
             break
         except ValueError:
-            funcs.speak("Скажите, например: 50 долларов в рубли")
+            functions.speak("Скажите, например: 50 долларов в рубли")
             break

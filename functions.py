@@ -6,6 +6,7 @@ import datetime
 import win32com.client as wincl
 import site
 import calculator
+import time
 import envelope
 import translator
 opts = {"alias": ('pythonguru', 'пайтонгуру', 'гурупайтон'),

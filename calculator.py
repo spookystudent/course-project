@@ -1,7 +1,7 @@
-import funcs
+import functions
 def calculator():
     try:
-        list_of_nums = funcs.voice.split()
+        list_of_nums = functions.voice.split()
         num_1,num_2 = int((list_of_nums[-3]).strip()), int((list_of_nums[-1]).strip())
         opers = [list_of_nums[0].strip(),list_of_nums[-2].strip()]
         for i in opers:
@@ -20,9 +20,9 @@ def calculator():
             if num_2 != 0:
                 ans = num_1 / num_2
             else:
-                funcs.speak("Делить на ноль невозможно")
+                functions.speak("Делить на ноль невозможно")
         elif "степен" in oper:
             ans = num_1 ** num_2
-        funcs.speak("{0} {1} {2} = {3}".format(list_of_nums[-3], list_of_nums[-2], list_of_nums[-1], ans))
+        functions.speak("{0} {1} {2} = {3}".format(list_of_nums[-3], list_of_nums[-2], list_of_nums[-1], ans))
     except:
-        funcs.speak("Скажите, например: Сколько будет 5+5?")
+        functions.speak("Скажите, например: Сколько будет 5+5?")
