@@ -4,12 +4,12 @@ import os
 from fuzzywuzzy import fuzz
 import datetime
 import win32com.client as wincl
-import site
+import BrowserHandler
 import calculator
 import time
 import envelope
 import translator
-opts = {"alias": ('pythonguru', 'пайтонгуру', 'гурупайтон'),
+opts = {"alias": ('Шапка'),
         "tbr": ('скажи', 'расскажи', 'покажи', 'сколько', 'произнеси', 'как','сколько','поставь','переведи', "засеки",'запусти','сколько будет'),
         "cmds":
             {"ctime": ('текущее время', 'сейчас времени', 'который час', 'время', 'какое сейчас время'),
@@ -39,7 +39,7 @@ def callback(recognizer, audio):
         global voice
         voice = recognizer.recognize_google(audio, language="ru-RU").lower()
 
-        print("[log] Распознано: " + voice)
+        print("Распознано: " + voice)
 
         if voice.startswith(opts["alias"]):
             cmd = voice
@@ -83,15 +83,16 @@ def execute_cmd(cmd):
         os.system('shutdown -s')
         speak("Выключаю...")
     elif cmd == 'calc':
-        calc.calculator()
+        calculator.calculator()
     elif cmd == 'conv':
-        convert.convertation()
+        envelope.convertation()
     elif cmd == 'translator':
-        translate.translate()
-    elif cmd == 'stupid1':
-        anekdot.fun()
+        translator.translate()
+   # elif cmd == 'stupid1':
+    #    anekdot.fun()
     elif cmd == 'internet':
-        browser.browser()
+        print('123412412')
+        BrowserHandler.browser()
     elif cmd == 'startStopwatch':
         speak("Секундомер запущен")
         startTime = time.time()
