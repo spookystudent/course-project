@@ -1,6 +1,7 @@
 import pyttsx3
 import speech_recognition as sr
 import os
+import win32com.client
 from fuzzywuzzy import fuzz
 import datetime
 import win32com.client as wincl
@@ -31,7 +32,12 @@ m = sr.Microphone(device_index=1)
 voice = "str"
 def speak(what):
      print(what)
-     speak = wincl.Dispatch("SAPI.SpVoice")
+     speak = win32com.client.Dispatch("Sapi.SpVoice")
+     voices = speak.GetVoices()
+     voices_names = [voice.GetDescription() for voice in voices]
+     speak.Voice = voices[0]
+     speak.Rate = 2
+     speak.Volume = 100
      speak.Speak(what)
 
 def callback(recognizer, audio):
@@ -56,9 +62,9 @@ def callback(recognizer, audio):
 
 
     except sr.UnknownValueError:
-        print("[log] Голос не распознан!")
+        print("Голос не распознан!")
     except sr.RequestError as e:
-        print("[log] Неизвестная ошибка, проверьте интернет!")
+        print("Неизвестная ошибка, проверьте интернет!")
 def listen():
     with m as source:
         r.adjust_for_ambient_noise(source)
@@ -87,11 +93,12 @@ def execute_cmd(cmd):
     elif cmd == 'conv':
         envelope.convertation()
     elif cmd == 'translator':
+        print('пытаемся залесть в переводчик')
         translator.translate()
    # elif cmd == 'stupid1':
     #    anekdot.fun()
     elif cmd == 'internet':
-        print('123412412')
+        print('пытаемся залесть в инет')
         BrowserHandler.browser()
     elif cmd == 'startStopwatch':
         speak("Секундомер запущен")
