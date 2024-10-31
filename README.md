@@ -1,8 +1,14 @@
 # Как установить виртуальное окружение
 ## Python 3.12
 
-- Чтобы активировать
-    ```> venv\Scripts\Activate.ps1```
+- Создать виртуальное окружение
+    ```python -m venv ./venv/```
 
-- Чтобы загрузить все библиотеки
-    ```> pip install -r ./requiremnts.txt```
+- Активировать venv
+    ```venv\Scripts\Activate.ps1```
+
+- Загрузить все библиотеки
+    ```pip install -r ./requiremnts.txt```
+
+- Создать список установленных библиотек
+    ```pip freeze > requirements.txt```
