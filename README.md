@@ -8,7 +8,7 @@
     ```venv\Scripts\Activate.ps1```
 
 - Загрузить все библиотеки
-    ```pip install -r ./requiremnts.txt```
+    ```pip install -r ./requiremеnts.txt```
 
 - Создать список установленных библиотек
     ```pip freeze > requirements.txt```
