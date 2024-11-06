@@ -10,7 +10,7 @@ import calculator
 import time
 import envelope
 import translator
-opts = {"alias": ('Айрис', 'Арис', 'Рис', 'Аис'),
+opts = {"alias": ('айрис', 'Арис', 'Рис', 'Аис','Iris','Iri'),
         "tbr": ('скажи', 'расскажи', 'покажи', 'сколько', 'произнеси', 'как','сколько','поставь','переведи', "засеки",'запусти','сколько будет'),
         "cmds":
             {"ctime": ('текущее время', 'сейчас времени', 'который час', 'время', 'какое сейчас время'),
@@ -26,7 +26,7 @@ opts = {"alias": ('Айрис', 'Арис', 'Рис', 'Аис'),
 startTime = 0
 speak_engine = pyttsx3.init()
 voices = speak_engine.getProperty('voices')
-speak_engine.setProperty('voice', voices[2].id)
+speak_engine.setProperty('voice', voices[1].id)
 r = sr.Recognizer()
 m = sr.Microphone(device_index=1)
 voice = "str"
