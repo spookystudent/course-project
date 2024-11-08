@@ -10,7 +10,7 @@ import calculator
 import time
 import envelope
 import translator
-opts = {"alias": ('Айрис', 'Арис', 'Рис', 'Аис'),
+opts = {"alias": ('айрис', 'арис', 'рис', 'аис', 'iris', 'airis', 'ириска'),
         "tbr": ('скажи', 'расскажи', 'покажи', 'сколько', 'произнеси', 'как','сколько','поставь','переведи', "засеки",'запусти','сколько будет'),
         "cmds":
             {"ctime": ('текущее время', 'сейчас времени', 'который час', 'время', 'какое сейчас время'),
@@ -98,7 +98,6 @@ def execute_cmd(cmd):
    # elif cmd == 'stupid1':
     #    anekdot.fun()
     elif cmd == 'internet':
-        print('пытаемся залесть в инет')
         BrowserHandler.browser()
     elif cmd == 'startStopwatch':
         speak("Секундомер запущен")
